@@ -1,29 +1,32 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-
-char palavra[100];
-int i, tamanho, palindromo = 1;
+#include <ctype.h> // Apenas para a fun√ß√£o tolower() 
 
 int main() {
     setlocale(LC_ALL, "portuguese");
 
+    char palavra[100];
+    int palindromo = 1;
+
     printf("Digite uma palavra: ");
-    scanf("%s", palavra);
+    scanf("%99s", palavra);
 
-    tamanho = strlen(palavra);
-
-    for (i = 0; i < tamanho / 2; i++) {
+    int tamanho = strlen(palavra);
+    
+    for (int i = 0; i < tamanho; i++) {
+        palavra[i] = tolower(palavra[i]);
+    }
+    for (int i = 0; i < tamanho / 2; i++) {
         if (palavra[i] != palavra[tamanho - 1 - i]) {
             palindromo = 0;
             break;
         }
     }
-
     if (palindromo) {
-        printf("… um PalÌndromo!\n");
+        printf("√â um Pal√≠ndromo!\n");
     } else {
-        printf("N„o È um PalÌndromo!\n");
+        printf("N√£o √© um Pal√≠ndromo!\n");
     }
 
     return 0;
