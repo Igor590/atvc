@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include <ctype.h> // Apenas para a função tolower() 
+#include <ctype.h>
 
 int main() {
     setlocale(LC_ALL, "portuguese");
